@@ -25,7 +25,15 @@ Forking is recommended if you want to save your progress in the notebooks to you
 
 ## Setup for Local Development
 
-You can use either Poetry or pip to set up your local environment.
+You have several options for setting up your local environment. Choose the one you are most comfortable with.
+
+### With pip/venv
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows, use `.venv\Scripts\activate`
+pip install -r requirements.txt
+```
 
 ### With Poetry
 
@@ -34,13 +42,42 @@ poetry install
 poetry shell
 ```
 
-### With pip
+### With uv
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-pip install -r requirements.txt
+# Install uv
+pip install uv
+
+# Create and activate the virtual environment
+uv venv
+source .venv/bin/activate # On Windows, use `.venv\Scripts\activate`
+
+# Install dependencies
+uv pip install -r requirements.txt
 ```
+
+### With Conda
+
+```bash
+# Create and activate the environment
+conda create --name genai-python-onramp python=3.9
+conda activate genai-python-onramp
+
+# Install dependencies
+conda install --file requirements.txt
+```
+
+## Environment Command Comparison
+
+| Action                      | `pip/venv`                                      | `poetry`                      | `uv`                                | `conda`                                                   |
+| --------------------------- | ----------------------------------------------- | ----------------------------- | ----------------------------------- | --------------------------------------------------------- |
+| **Create Environment**      | `python -m venv .venv`                          | `poetry install`              | `uv venv`                           | `conda create -n myenv python=3.9`                        |
+| **Activate Environment**    | `source .venv/bin/activate`                     | `poetry shell`                | `source .venv/bin/activate`         | `conda activate myenv`                                    |
+| **Install Dependencies**    | `pip install -r requirements.txt`               | `poetry install`              | `uv pip install -r requirements.txt`  | `conda install --file requirements.txt`                   |
+| **Add a Package**           | `pip install <pkg>`                             | `poetry add <pkg>`            | `uv pip install <pkg>`              | `conda install <pkg>`                                     |
+| **Deactivate Environment**  | `deactivate`                                    | `exit`                        | `deactivate`                        | `conda deactivate`                                        |
+| **List Environments**       | (Not directly supported)                        | `poetry env list`             | (Not directly supported)            | `conda env list`                                          |
+| **Delete Environment**      | `rm -rf .venv`                                  | `poetry env remove <python>`  | `rm -rf .venv`                      | `conda env remove -n myenv`                               |
 
 ## Course Notebooks
 

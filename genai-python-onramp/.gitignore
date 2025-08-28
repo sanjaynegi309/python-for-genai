@@ -1,0 +1,26 @@
+# Virtual Environment
+venv/
+.venv/
+venv_test/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE / Editor specific
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+build/
+
+# Secrets
+.env
+
+# Other
+messy_data.csv
+cleaned_data.json
+sample.csv
+sample.parquet
+example.txt
