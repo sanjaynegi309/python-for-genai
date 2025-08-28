@@ -1,0 +1,16 @@
+jupyterlab
+pandas
+pyarrow
+matplotlib
+seaborn
+pydantic
+httpx
+requests
+python-dotenv
+pyyaml
+fastapi
+uvicorn[standard]
+pytest
+pre-commit
+ruff
+black
